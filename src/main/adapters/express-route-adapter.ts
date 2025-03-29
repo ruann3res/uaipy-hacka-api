@@ -1,4 +1,5 @@
 import { Controller } from '@/app/controllers';
+import { Request, Response } from 'express';
 
 const statusCodesMap = {
     'ok': 200,
@@ -13,9 +14,12 @@ const statusCodesMap = {
 };
 
 export const adaptRoute = (controller: Controller) => {
-    return async (req, res) => {
+    return async (req: Request, res: Response) => {
+        const { body, query, params } = req;
         const httpRequest = {
-            ...(req.body || {}),
+            body: body || {},
+            query,
+            params,
             ...(req.file ? { file: req.file } : {}),
             ...(req.files ? { files: req.files } : {})
         };
