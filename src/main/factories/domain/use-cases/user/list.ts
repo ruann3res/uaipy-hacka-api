@@ -7,6 +7,4 @@ import {
 } from '@/main/factories/domain/contracts/repository/prisma';
 
 export const makeUserListUseCase = (): UserListUseCase =>
-  setupUserListUseCase(
-    makePrismaUserRepository(),
-  );
+  setupUserListUseCase(makePrismaUserRepository());

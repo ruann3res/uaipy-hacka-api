@@ -20,7 +20,6 @@ type Setup = (
       const { id } = params;
 
       const user = await userRepository.getBy({ id });
-
       if (!user) {
         throw new NoDataFoundError('User not found');
       }
