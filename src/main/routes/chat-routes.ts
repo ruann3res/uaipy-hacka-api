@@ -4,5 +4,5 @@ import { adaptRoute } from '@/main/adapters';
 import { makeSendToChatController } from '@/main/factories/app/controllers';
 
 export default (router: Router): void => {
-    router.post('/chat', upload.single('pdfBuffer'), adaptRoute(makeSendToChatController()));
+    router.post('/chat', upload.single('imageBuffer'), adaptRoute(makeSendToChatController()));
 };

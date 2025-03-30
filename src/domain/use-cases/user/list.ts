@@ -19,10 +19,6 @@ export const setupUserListUseCase: Setup =
   (userRepository) => async () => {
     const users = await userRepository.getAll();
 
-    if (!users) {
-      throw new NoDataFoundError('User not found');
-    }
-
     return users;
   };
 

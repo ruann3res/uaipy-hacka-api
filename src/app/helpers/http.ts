@@ -12,6 +12,7 @@ type FunctionsErrorCode =
   | 'out-of-range'
   | 'internal'
   | 'unavailable'
+  | 'unauthorized';
 
 export interface Response<T = any> {
   statusCode: FunctionsErrorCode;
@@ -42,4 +43,9 @@ export const notFound = (error: any): Response<Error> => ({
 export const serverError = (error: any): Response<Error> => ({
   statusCode: 'internal',
   result: new ServerError(error instanceof Error ? error : JSON.stringify(error))
+});
+
+export const unauthorized = (error: any): Response<Error> => ({
+  statusCode: 'unauthorized',
+  result: error
 });

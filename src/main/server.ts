@@ -1,6 +1,8 @@
 import { PrismaClient } from '@/domain/contracts/repository/prisma';
 import app from '@/main/config/app';
 
+
+
 async function main() {
   try {
     await PrismaClient.$connect();
